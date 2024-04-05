@@ -7,6 +7,7 @@ services:
       - .:/src
     ports:
       - 8000:8000  # ホストマシンのポート8000を、docker内のポート8000に接続する
+    restart: always
   db:
     image: mysql:8.0
     platform: linux/x86_64  # M1 Macの場合必要
@@ -19,5 +20,6 @@ services:
     command: --default-authentication-plugin=mysql_native_password  # MySQL8.0ではデフォルトが"caching_sha2_password"で、ドライバが非対応のため変更
     ports:
       - 33306:3306  # ホストマシンのポート33306を、docker内のポート3306に接続する
+    restart: always
 volumes:
   mysql_data:
