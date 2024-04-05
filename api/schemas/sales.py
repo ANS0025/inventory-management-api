@@ -7,4 +7,4 @@ class SaleBase(BaseModel):
     price: Optional[float] = 0
 
 class SaleCheck(BaseModel):
-    sales: float = Field(gt=0)
+    sales: float = 0
