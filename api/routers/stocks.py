@@ -16,7 +16,7 @@ async def create_stock(
 ):
     return await stocks_crud.create_stock(db, stock_body)
 
-@router.get("", response_model=Any)
+@router.get("")
 async def check_stock(
      product_name: Optional[str] = None, db: AsyncSession = Depends(get_db)
 ):
