@@ -47,6 +47,7 @@ async def delete_all(db: AsyncSession) -> Dict[str, str]:
     await db.execute(delete(sales_model.Sale))
     await db.execute(delete(stocks_model.Stock))
     await db.commit()
+
     return JSONResponse(
         status_code=200,
         content=jsonable_encoder({"message": "All stocks and sales have been deleted"})

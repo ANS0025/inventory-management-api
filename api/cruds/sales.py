@@ -48,4 +48,6 @@ async def create_sale(db: AsyncSession, sale_body: sales_schema.SaleBase) -> sal
 async def check_sale(db: AsyncSession) -> sales_schema.SaleCheck:
     result = await db.execute(select(func.sum(sales_model.Sale.total_price)))
     sum = result.scalar()
+    if sum is None:
+        sum = 0
     return sales_schema.SaleCheck(sales=sum)
