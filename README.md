@@ -12,6 +12,12 @@ FastAPIを使った、商品在庫データベースへデータを登録・更�
 4. 売り上げチェック:	これまで((5)の全削除API実行以降)に(3)の販売のAPI実行により売り上げた総売上を確認するAPI
 5. 全削除:	在庫及び売り上げをすべて削除するAPI
 
+## 使用方法
+1. リポジトリをローカルにclone: ```git clone git@github.com:ANS0025/inventory-management-api.git```
+2. ディレクトリを移動: ```cd inventory-management-api```
+3. コンテナの起動: ```docker-compose up -d```
+4. APIをテスト: http://localhost:8000/docs#/default/
+
 ## 実行例
 ```
 //(1) 在庫の更新、作成
