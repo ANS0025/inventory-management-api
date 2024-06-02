@@ -11,3 +11,37 @@ FastAPIを使った、商品在庫データベースへデータを登録・更�
 3. 販売	指定した商品について、在庫の数を減らして売上として加算するAPI
 4. 売り上げチェック:	これまで((5)の全削除API実行以降)に(3)の販売のAPI実行により売り上げた総売上を確認するAPI
 5. 全削除:	在庫及び売り上げをすべて削除するAPI
+
+## 実行例
+```
+//(1) 在庫の更新、作成
+$ curl -v -d '{"name": "xxx", "amount": 100}' -H 'Content-Type: application/json' http://xx.xx.xx.xx/v1/stocks
+{"name":"xxx","amount":100}
+
+//(2) 在庫チェック
+//URI が /v1/stocks/xxx の場合の実行例
+$ curl http://xx.xx.xx.xx/v1/stocks/xxx
+{"xxx":100}
+
+//URI が /v1/stocks の場合の実行例
+$ curl http://xx.xx.xx.xx/v1/stocks
+{"YYY":100,"xxx":96,"yyy":100}
+
+//(3) 販売
+$ curl -v -d '{"name": "xxx", "amount": 4}' -H 'Content-Type: application/json' http://xx.xx.xx.xx/v1/sales
+{"name":"xxx","amount":4}
+
+//(4) 売り上げチェック
+$ curl http://xx.xx.xx.xx/v1/sales
+{"sales":400.0}
+
+//(5) 全削除
+$ curl -d '{"name": "YYY", "amount": 100}' -H 'Content-Type: application/json' http://xx.xx.xx.xx/v1/stocks
+{"name":"YYY","amount":100}
+
+$ curl http://xx.xx.xx.xx/v1/stocks
+{"YYY":100,"xxx":96,"yyy":100}
+```
+
+## 参考資料
+- [FastAPI入門](https://zenn.dev/sh0nk/books/537bb028709ab9)
