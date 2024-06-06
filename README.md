@@ -15,8 +15,9 @@
 ## 使用方法
 1. リポジトリをローカルにclone: ```git clone git@github.com:ANS0025/inventory-management-api.git```
 2. ディレクトリを移動: ```cd inventory-management-api```
-3. コンテナの起動: ```docker-compose up -d```
-4. APIをテスト: http://localhost:8000/docs#/default/
+3. 必要パッケージのインストール: ```docker-compose run --entrypoint "poetry install --no-root" demo-app```
+4. コンテナの起動: ```docker-compose build --no-cache```
+5. APIをテスト: http://localhost:8000/docs#/default/
 
 ## 実行例
 ```
